@@ -21,9 +21,13 @@ fun HomeScreen(navController: NavController) {
     ) {
         Text(text = "HomeScreen", fontSize = 50.sp)
         Button(onClick = {
-            navController.navigate(Destinations.ForYou.route)
+            navController.navigate(Destinations.Library.route) {
+                // Ensure that navigating to Library doesn't keep Home in the back stack
+                popUpTo(Destinations.Home.route) { inclusive = true }
+                launchSingleTop = true
+            }
         }) {
-            Text(text = "Navigate to ForYouScreen")
+            Text(text = "Navigate to Library Screen")
         }
     }
 }

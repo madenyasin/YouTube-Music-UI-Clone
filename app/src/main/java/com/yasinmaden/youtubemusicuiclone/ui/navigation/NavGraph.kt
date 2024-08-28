@@ -6,7 +6,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.yasinmaden.youtubemusicuiclone.ui.screens.ExploreScreen
-import com.yasinmaden.youtubemusicuiclone.ui.screens.ForYouScreen
 import com.yasinmaden.youtubemusicuiclone.ui.screens.HomeScreen
 import com.yasinmaden.youtubemusicuiclone.ui.screens.LibraryScreen
 
@@ -15,9 +14,6 @@ fun NavGraph(navController: NavHostController, modifier: Modifier) {
     NavHost(navController = navController, startDestination = Destinations.Home.route) {
         composable(Destinations.Home.route){
             HomeScreen(navController)
-        }
-        composable(Destinations.ForYou.route){
-            ForYouScreen(navController)
         }
         composable(Destinations.Explore.route){
             ExploreScreen(navController)

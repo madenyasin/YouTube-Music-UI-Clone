@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.yasinmaden.youtubemusicuiclone.ui.navigation.NavGraph
+import com.yasinmaden.youtubemusicuiclone.ui.navigation.bottom_bar.BottomBarNavigation
 import com.yasinmaden.youtubemusicuiclone.ui.theme.YouTubeMusicUICloneTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +23,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             YouTubeMusicUICloneTheme {
                 val navController = rememberNavController()
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    bottomBar = { BottomBarNavigation(navController = navController)},
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
                     NavGraph(
                         navController = navController,
                         modifier = Modifier.padding(innerPadding)
