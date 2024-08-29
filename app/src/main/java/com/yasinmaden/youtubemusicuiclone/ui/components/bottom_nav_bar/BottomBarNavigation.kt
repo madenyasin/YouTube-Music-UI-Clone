@@ -1,4 +1,4 @@
-package com.yasinmaden.youtubemusicuiclone.ui.navigation.bottom_bar
+package com.yasinmaden.youtubemusicuiclone.ui.components.bottom_nav_bar
 
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigation

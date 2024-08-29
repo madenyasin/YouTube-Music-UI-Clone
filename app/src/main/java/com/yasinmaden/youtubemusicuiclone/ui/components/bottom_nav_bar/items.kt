@@ -1,4 +1,4 @@
-package com.yasinmaden.youtubemusicuiclone.ui.navigation.bottom_bar
+package com.yasinmaden.youtubemusicuiclone.ui.components.bottom_nav_bar
 
 import com.yasinmaden.youtubemusicuiclone.ui.navigation.Destinations
 
