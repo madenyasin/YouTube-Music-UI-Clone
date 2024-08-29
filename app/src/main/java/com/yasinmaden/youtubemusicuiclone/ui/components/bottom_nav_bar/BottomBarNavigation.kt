@@ -1,33 +1,39 @@
-package com.yasinmaden.youtubemusicuiclone.ui.navigation.bottom_bar
+package com.yasinmaden.youtubemusicuiclone.ui.components.bottom_nav_bar
 
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigation
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.yasinmaden.youtubemusicuiclone.R
 
 @Composable
 fun BottomBarNavigation(navController: NavController) {
-    BottomNavigation {
+    BottomNavigation(
+        backgroundColor = Color.White
+    ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
         bottomBarItems.forEach { screen ->
             BottomNavigationItem(
-                icon = screen.icon,
-                label = { Text(text = screen.label)},
+                icon = if (currentDestination?.hierarchy?.any { it.route == screen.route } == true) {
+                    screen.selectedIcon
+                } else {
+                    screen.unSelectedIcon
+                },
+                label = { Text(text = screen.label) },
                 selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                 onClick = {
-                    navController.navigate(screen.route){
+                    navController.navigate(screen.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }
@@ -39,4 +45,10 @@ fun BottomBarNavigation(navController: NavController) {
         }
     }
 
+}
+
+@Preview
+@Composable
+fun BottomBarNavigationPreview() {
+    BottomBarNavigation(navController = NavController(LocalContext.current))
 }
