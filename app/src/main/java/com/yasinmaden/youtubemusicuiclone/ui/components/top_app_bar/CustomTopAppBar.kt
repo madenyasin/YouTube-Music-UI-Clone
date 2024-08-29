@@ -1,6 +1,7 @@
 package com.yasinmaden.youtubemusicuiclone.ui.components.top_app_bar
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,13 +42,15 @@ fun CustomTopAppBar() {
 
                     Icon(
                         imageVector = ImageVector.vectorResource(id = R.drawable.rounded_cast_connected_24),
-                        contentDescription = null
+                        contentDescription = null,
+                        modifier = Modifier.clickable {  }
                     )
                     Icon(
                         imageVector = ImageVector.vectorResource(id = R.drawable.baseline_search_24),
-                        contentDescription = null
+                        contentDescription = null,
+                        modifier = Modifier.clickable {  }
                     )
-                    Image(painter = painterResource(id = R.drawable.user), contentDescription = null, Modifier.size(24.dp))
+                    Image(painter = painterResource(id = R.drawable.user), contentDescription = null, Modifier.size(24.dp).clickable {  })
                 }
             }
         })
